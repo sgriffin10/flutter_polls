@@ -364,19 +364,17 @@ class FlutterPolls extends HookWidget {
                                     ),
                               ),
                               child: Center(
-                                child: pollOption.title,
-
-                                // isLoading.value &&
-                                //         pollOption.id == votedOption.value!.id
-                                //     ? loadingWidget ??
-                                //         const SizedBox(
-                                //           height: 20,
-                                //           width: 20,
-                                //           child: CircularProgressIndicator(
-                                //             strokeWidth: 2,
-                                //           ),
-                                //         )
-                                //     : pollOption.title,
+                                child: isLoading.value &&
+                                        pollOption.id == votedOption.value!.id
+                                    ? loadingWidget ??
+                                        const SizedBox(
+                                          height: 20,
+                                          width: 20,
+                                          child: CircularProgressIndicator(
+                                            strokeWidth: 2,
+                                          ),
+                                        )
+                                    : pollOption.title,
                               ),
                             ),
                           ),
