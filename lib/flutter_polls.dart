@@ -320,11 +320,11 @@ class FlutterPolls extends HookWidget {
                           child: InkWell(
                             onTap: () async {
                               // Disables clicking while loading
-                              if (isLoading.value) return;
+                              // if (isLoading.value) return;
 
                               votedOption.value = pollOption;
 
-                              isLoading.value = true;
+                              // isLoading.value = true;
 
                               bool success = await onVoted(
                                 votedOption.value!,
