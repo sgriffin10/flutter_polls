@@ -304,7 +304,7 @@ class FlutterPolls extends HookWidget {
                                   Text(
                                     totalVotes.value == 0
                                         ? "0 $votesText"
-                                        : '${(pollOption.votes / totalVotes.value * 100).toStringAsFixed(0)}%',
+                                        : '${(pollOption.votes / totalVotes.value * 100).toStringAsFixed(1)}%',
                                     style: votedPercentageTextStyle,
                                   ),
                                 ],
@@ -324,7 +324,7 @@ class FlutterPolls extends HookWidget {
 
                               votedOption.value = pollOption;
 
-                              isLoading.value = true;
+                              // isLoading.value = true;
 
                               bool success = await onVoted(
                                 votedOption.value!,
