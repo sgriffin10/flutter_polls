@@ -276,7 +276,7 @@ class FlutterPolls extends HookWidget {
                             percent: totalVotes.value == 0
                                 ? 0
                                 : pollOption.votes / totalVotes.value,
-                            animation: false,
+                            animation: true,
                             animationDuration: votedAnimationDuration,
                             backgroundColor: votedBackgroundColor,
                             progressColor:
@@ -326,18 +326,18 @@ class FlutterPolls extends HookWidget {
 
                               // isLoading.value = true;
 
-                              bool success = await onVoted(
-                                votedOption.value!,
-                                totalVotes.value,
-                              );
+                              // bool success = await onVoted(
+                              //   votedOption.value!,
+                              //   totalVotes.value,
+                              // );
 
                               isLoading.value = false;
 
-                              if (success) {
-                                pollOption.votes++;
-                                totalVotes.value++;
-                                userHasVoted.value = true;
-                              }
+                              // if (success) {
+                              pollOption.votes++;
+                              totalVotes.value++;
+                              userHasVoted.value = true;
+                              // }
                             },
                             splashColor: pollOptionsSplashColor,
                             borderRadius: pollOptionsBorderRadius ??
