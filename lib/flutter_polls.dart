@@ -276,7 +276,7 @@ class FlutterPolls extends HookWidget {
                             percent: totalVotes.value == 0
                                 ? 0
                                 : pollOption.votes / totalVotes.value,
-                            animation: true,
+                            animation: false,
                             animationDuration: votedAnimationDuration,
                             backgroundColor: votedBackgroundColor,
                             progressColor:
