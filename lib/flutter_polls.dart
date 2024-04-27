@@ -251,7 +251,7 @@ class FlutterPolls extends HookWidget {
                 throw ('>>>Flutter Polls: User has voted but [userVotedOptionId] is null.<<<');
               } else {
                 return AnimatedSwitcher(
-                  duration: const Duration(milliseconds: 0),
+                  duration: const Duration(milliseconds: 300),
                   child: userHasVoted.value || hasPollEnded.value
                       ? Container(
                           key: UniqueKey(),
@@ -268,7 +268,6 @@ class FlutterPolls extends HookWidget {
                                 )
                               : null,
                           child: LinearPercentIndicator(
-                            addAutomaticKeepAlive: false,
                             width: pollOptionsWidth,
                             lineHeight: pollOptionsHeight!,
                             barRadius: votedPollOptionsRadius ??
@@ -277,7 +276,7 @@ class FlutterPolls extends HookWidget {
                             percent: totalVotes.value == 0
                                 ? 0
                                 : pollOption.votes / totalVotes.value,
-                            animation: false,
+                            animation: true,
                             animationDuration: votedAnimationDuration,
                             backgroundColor: votedBackgroundColor,
                             progressColor:
@@ -305,7 +304,7 @@ class FlutterPolls extends HookWidget {
                                   Text(
                                     totalVotes.value == 0
                                         ? "0 $votesText"
-                                        : '${(pollOption.votes / totalVotes.value * 100).toStringAsFixed(0)}%',
+                                        : '${(pollOption.votes / totalVotes.value * 100).toStringAsFixed(1)}%',
                                     style: votedPercentageTextStyle,
                                   ),
                                 ],
@@ -334,11 +333,11 @@ class FlutterPolls extends HookWidget {
 
                               isLoading.value = false;
 
-                              // if (success) {
-                              pollOption.votes++;
-                              totalVotes.value++;
-                              userHasVoted.value = true;
-                              // }
+                              if (success) {
+                                pollOption.votes++;
+                                totalVotes.value++;
+                                userHasVoted.value = true;
+                              }
                             },
                             splashColor: pollOptionsSplashColor,
                             borderRadius: pollOptionsBorderRadius ??
