@@ -324,7 +324,7 @@ class FlutterPolls extends HookWidget {
 
                               votedOption.value = pollOption;
 
-                              isLoading.value = true;
+                              // isLoading.value = true;
 
                               bool success = await onVoted(
                                 votedOption.value!,
