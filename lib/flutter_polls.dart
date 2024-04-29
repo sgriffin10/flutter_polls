@@ -320,14 +320,11 @@ class FlutterPolls extends HookWidget {
                           child: InkWell(
                             onTap: () async {
                               // Disables clicking while loading
-                              pollOption.votes++;
-                              totalVotes.value++;
-                              userHasVoted.value = true;
                               if (isLoading.value) return;
 
                               votedOption.value = pollOption;
 
-                              // isLoading.value = true;
+                              isLoading.value = true;
 
                               bool success = await onVoted(
                                 votedOption.value!,
@@ -336,11 +333,11 @@ class FlutterPolls extends HookWidget {
 
                               isLoading.value = false;
 
-                              // if (success) {
-                              // pollOption.votes++;
-                              // totalVotes.value++;
-                              // userHasVoted.value = true;
-                              // }
+                              if (success) {
+                                pollOption.votes++;
+                                totalVotes.value++;
+                                userHasVoted.value = true;
+                              }
                             },
                             splashColor: pollOptionsSplashColor,
                             borderRadius: pollOptionsBorderRadius ??
